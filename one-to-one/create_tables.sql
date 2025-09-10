@@ -1,0 +1,12 @@
+
+CREATE TABLE IF NOT EXISTS students (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(64)
+);
+
+CREATE TABLE IF NOT EXISTS passports (
+    id SERIAL PRIMARY KEY,
+    passport_number VARCHAR(64) NOt NULL UNIQUE,
+    student_id INT UNIQUE REFERENCES students(id) ON DELETE CASCADE
+);
+
