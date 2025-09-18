@@ -1,0 +1,17 @@
+CREATE TABLE IF NOT EXISTS students2 (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(64)
+);
+
+CREATE TABLE IF NOT EXISTS courses2 (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(64) NOT NULL UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS student_courses (
+    id SERIAL PRIMARY KEY,
+    student_id INT REFERENCES students2(id) ON DELETE CASCADE,
+    course_id INT REFERENCES courses2(id) ON DELETE CASCADE
+
+    
+);
